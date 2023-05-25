@@ -29,6 +29,7 @@ namespace AnnouncementProcessor.Proxies
             MessageType.VideoNote => await _telegramBotClient.SendVideoNoteAsync(announcement.ChatId, videoNote: InputFile.FromUri(announcement.ContentUrl), replyMarkup: announcement.ReplyMarkup),
             MessageType.Voice => await _telegramBotClient.SendVoiceAsync(announcement.ChatId, voice: InputFile.FromStream(await _blobServiceManager.GetContentAsStream(announcement.ContentUrl)), caption: announcement.Text, replyMarkup: announcement.ReplyMarkup),
             MessageType.Audio => await _telegramBotClient.SendAudioAsync(announcement.ChatId, audio: InputFile.FromUri(announcement.ContentUrl), caption: announcement.Text),
+            MessageType.Sticker => await _telegramBotClient.SendStickerAsync(announcement.ChatId, InputFile.FromFileId(announcement.Text)),
             _ => null
         };
     }
