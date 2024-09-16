@@ -35,6 +35,7 @@ namespace AnnouncementProcessor
             });
 
             builder.Services.AddScoped<IBlobServiceManager, BlobServiceManager>();
+            builder.Services.AddScoped<IInputFileManager, InputFileManager>();
         }
     }
 }
