@@ -11,6 +11,7 @@ namespace AnnouncementProcessor.ViewModels
         public Uri ContentUrl { get; set; }
         public long ChatId { get; set; }
         public InlineKeyboardMarkup ReplyMarkup { get; set; }
+        public ContentProperties ContentProperties { get; set; }
     }
 }
 
